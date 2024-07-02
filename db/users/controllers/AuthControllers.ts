@@ -70,7 +70,7 @@ export const login = async (
         {expiresIn: "15m"}
     )
 
-    res.cookie("token", refreshToken, {httpOnly: true, sameSite: "none", maxAge: 1000 * 60 * 60 * 24 * 30, })
+    res.cookie("token", refreshToken, {httpOnly: true, sameSite: "none", maxAge: 1000 * 60 * 60 * 24 * 30, secure: true })
     res.json({user: payload, accessToken})
 }
 
@@ -124,6 +124,6 @@ export const logout = (
     if(!token){
         return res.sendStatus(204)
     }
-    res.clearCookie("token", {httpOnly: true, sameSite: "none"})
+    res.clearCookie("token", {httpOnly: true, sameSite: "none", secure: true})
     res.sendStatus(200)
 }
