@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon app.ts"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
